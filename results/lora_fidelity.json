@@ -1,0 +1,11 @@
+{
+  "traces": 16,
+  "scored_tokens": 24576,
+  "edit_shift_mean_abs": 0.06171326846325012,
+  "adapter_shift_mean_abs": 0.06174048855723668,
+  "shift_correlation": 0.9679092338986967,
+  "adapter_minus_edit_shift_mean_abs": 0.016106721697465805,
+  "engines_base_mean_abs": 0.010658642118445964,
+  "large_shifts": 356,
+  "large_shifts_same_sign": 356
+}

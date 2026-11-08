@@ -1,0 +1,55 @@
+{
+  "vllm": "0.33.0",
+  "prompts": 64,
+  "max_tokens": 8192,
+  "start_s": 92.6,
+  "one_token_base_s": 0.024,
+  "one_token_new_adapter_s": [
+    0.022,
+    0.019,
+    0.019,
+    0.019,
+    0.019
+  ],
+  "passes": {
+    "base": {
+      "s": 42.5,
+      "rows": 64,
+      "generated_tokens": 511497,
+      "tokens_per_s": 12034.3,
+      "base": {
+        "correct": 3,
+        "hit_cap": 61,
+        "median_tokens": 8192.0
+      }
+    },
+    "edited": {
+      "s": 46.6,
+      "rows": 64,
+      "generated_tokens": 463975,
+      "tokens_per_s": 9965.2,
+      "edited": {
+        "correct": 20,
+        "hit_cap": 44,
+        "median_tokens": 8192.0
+      }
+    },
+    "paired": {
+      "s": 64.9,
+      "rows": 128,
+      "generated_tokens": 974909,
+      "tokens_per_s": 15017.5,
+      "base": {
+        "correct": 10,
+        "hit_cap": 57,
+        "median_tokens": 8192.0
+      },
+      "edited": {
+        "correct": 16,
+        "hit_cap": 48,
+        "median_tokens": 8192.0
+      },
+      "rows_that_differ": 64
+    }
+  }
+}

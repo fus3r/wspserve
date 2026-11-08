@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.DS_Store
+._*
+*.egg-info/
+results/adapters/
+results/compiled/

@@ -1,0 +1,2626 @@
+{
+  "logs_revision": "4d09ba6d6a7e891dd8063974dfe81b3d78e3494f",
+  "bases": {
+    "qwen": [
+      "Qwen/Qwen3.5-0.8B",
+      "2fc06364715b967f1860aea9cf38778875588b17"
+    ],
+    "gemma": [
+      "google/gemma-3-270m-it",
+      "ac82b4e820549b854eebf28ce6dedaf9fdfa17b3"
+    ]
+  },
+  "scope": "Released final edits only. Every representation is checked to rebuild the published edited SHA-256 bit for bit; no model is run here.",
+  "runs": {
+    "p10c": {
+      "status": "compiled",
+      "tensors": 30,
+      "smallest_exact_kinds": [
+        "low_rank"
+      ],
+      "total_bytes_smallest": 4768102,
+      "total_bytes_authors_bundle": 908585,
+      "dense_bytes_bf16": 173015040,
+      "peft_adapter": {
+        "rank": 1,
+        "target_modules": [
+          "down_proj",
+          "o_proj",
+          "out_proj"
+        ],
+        "modules": 30,
+        "bytes": 469480
+      },
+      "seconds": 127.8,
+      "rows": [
+        {
+          "tensor": "model.language_model.layers.10.linear_attn.out_proj.weight",
+          "shape": [
+            1024,
+            2048
+          ],
+          "authors_form": "lowrank",
+          "edited_hash_verified": true,
+          "changed_entries": 1838146,
+          "changed_rows": 1024,
+          "changed_columns": 2048,
+          "spectral_rank": {
+            "rank": 1,
+            "leading_singular_values": [
+              0.9277367264754977,
+              0.003021228803250889,
+              0.002453389622693404,
+              0.002336336752823842,
+              0.002297794973940809
+            ]
+          },
+          "low_rank_1": {
+            "rank": 1,
+            "plain_svd_mismatches": 109095,
+            "refined_mismatches": 17659,
+            "refinement_steps_used": 60,
+            "relative_residual": 0.029416117190247636,
+            "leading_singular_values": [
+              0.9277367264754979
+            ]
+          },
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 1838146,
+              "bytes": 11028876
+            },
+            {
+              "kind": "low_rank",
+              "rank": 1,
+              "support_columns": 2048,
+              "fixups": 17659,
+              "bytes": 126434
+            }
+          ],
+          "smallest_exact": "low_rank",
+          "serving_cost_per_token": {
+            "lora_madds": 3072,
+            "fixup_madds": 17659
+          },
+          "dense_matmul_madds_per_token": 2097152,
+          "authors_factors": {
+            "rank": 1,
+            "fixups": 8,
+            "bytes": 20528
+          }
+        },
+        {
+          "tensor": "model.language_model.layers.10.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3584
+          ],
+          "authors_form": "lowrank",
+          "edited_hash_verified": true,
+          "changed_entries": 3207668,
+          "changed_rows": 1024,
+          "changed_columns": 3584,
+          "spectral_rank": {
+            "rank": 1,
+            "leading_singular_values": [
+              0.7820716170218406,
+              0.002622734270624923,
+              0.002459882391420343,
+              0.0021022565308876943,
+              0.0019609890901554836
+            ]
+          },
+          "low_rank_1": {
+            "rank": 1,
+            "plain_svd_mismatches": 178922,
+            "refined_mismatches": 29239,
+            "refinement_steps_used": 60,
+            "relative_residual": 0.03162884605808544,
+            "leading_singular_values": [
+              0.7820716170218409
+            ]
+          },
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 3207668,
+              "bytes": 19246008
+            },
+            {
+              "kind": "low_rank",
+              "rank": 1,
+              "support_columns": 3584,
+              "fixups": 29239,
+              "bytes": 208202
+            }
+          ],
+          "smallest_exact": "low_rank",
+          "serving_cost_per_token": {
+            "lora_madds": 4608,
+            "fixup_madds": 29239
+          },
+          "dense_matmul_madds_per_token": 3670016,
+          "authors_factors": {
+            "rank": 1,
+            "fixups": 15,
+            "bytes": 32858
+          }
+        },
+        {
+          "tensor": "model.language_model.layers.11.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3584
+          ],
+          "authors_form": "lowrank",
+          "edited_hash_verified": true,
+          "changed_entries": 3199525,
+          "changed_rows": 1024,
+          "changed_columns": 3584,
+          "spectral_rank": {
+            "rank": 1,
+            "leading_singular_values": [
+              0.8517808444663033,
+              0.0026596969764850187,
+              0.002373289780054156,
+              0.0021591039026454682,
+              0.002078516912004601
+            ]
+          },
+          "low_rank_1": {
+            "rank": 1,
+            "plain_svd_mismatches": 175210,
+            "refined_mismatches": 28222,
+            "refinement_steps_used": 60,
+            "relative_residual": 0.029540193878035616,
+            "leading_singular_values": [
+              0.8517808444663034
+            ]
+          },
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 3199525,
+              "bytes": 19197150
+            },
+            {
+              "kind": "low_rank",
+              "rank": 1,
+              "support_columns": 3584,
+              "fixups": 28222,
+              "bytes": 202100
+            }
+          ],
+          "smallest_exact": "low_rank",
+          "serving_cost_per_token": {
+            "lora_madds": 4608,
+            "fixup_madds": 28222
+          },
+          "dense_matmul_madds_per_token": 3670016,
+          "authors_factors": {
+            "rank": 1,
+            "fixups": 15,
+            "bytes": 32858
+          }
+        },
+        {
+          "tensor": "model.language_model.layers.11.self_attn.o_proj.weight",
+          "shape": [
+            1024,
+            2048
+          ],
+          "authors_form": "lowrank",
+          "edited_hash_verified": true,
+          "changed_entries": 1854441,
+          "changed_rows": 1024,
+          "changed_columns": 2047,
+          "spectral_rank": {
+            "rank": 1,
+            "leading_singular_values": [
+              1.0101192928167113,
+              0.002965757656555265,
+              0.002418762508313437,
+              0.0023170915086620078,
+              0.0022854323692064133
+            ]
+          },
+          "low_rank_1": {
+            "rank": 1,
+            "plain_svd_mismatches": 105164,
+            "refined_mismatches": 17310,
+            "refinement_steps_used": 60,
+            "relative_residual": 0.027085531989445473,
+            "leading_singular_values": [
+              1.010119292816711
+            ]
+          },
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 1854441,
+              "bytes": 11126646
+            },
+            {
+              "kind": "low_rank",
+              "rank": 1,
+              "support_columns": 2047,
+              "fixups": 17310,
+              "bytes": 124332
+            }
+          ],
+          "smallest_exact": "low_rank",
+          "serving_cost_per_token": {
+            "lora_madds": 3071,
+            "fixup_madds": 17310
+          },
+          "dense_matmul_madds_per_token": 2097152,
+          "authors_factors": {
+            "rank": 1,
+            "fixups": 12,
+            "bytes": 20552
+          }
+        },
+        {
+          "tensor": "model.language_model.layers.12.linear_attn.out_proj.weight",
+          "shape": [
+            1024,
+            2048
+          ],
+          "authors_form": "lowrank",
+          "edited_hash_verified": true,
+          "changed_entries": 1806630,
+          "changed_rows": 1024,
+          "changed_columns": 2048,
+          "spectral_rank": {
+            "rank": 1,
+            "leading_singular_values": [
+              0.9117065598539225,
+              0.0029714345894017694,
+              0.0023352608121582946,
+              0.0022762109756127302,
+              0.002219207900759263
+            ]
+          },
+          "low_rank_1": {
+            "rank": 1,
+            "plain_svd_mismatches": 108010,
+            "refined_mismatches": 17035,
+            "refinement_steps_used": 60,
+            "relative_residual": 0.028677765776984755,
+            "leading_singular_values": [
+              0.9117065598539223
+            ]
+          },
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 1806630,
+              "bytes": 10839780
+            },
+            {
+              "kind": "low_rank",
+              "rank": 1,
+              "support_columns": 2048,
+              "fixups": 17035,
+              "bytes": 122690
+            }
+          ],
+          "smallest_exact": "low_rank",
+          "serving_cost_per_token": {
+            "lora_madds": 3072,
+            "fixup_madds": 17035
+          },
+          "dense_matmul_madds_per_token": 2097152,
+          "authors_factors": {
+            "rank": 1,
+            "fixups": 4,
+            "bytes": 20504
+          }
+        },
+        {
+          "tensor": "model.language_model.layers.12.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3584
+          ],
+          "authors_form": "lowrank",
+          "edited_hash_verified": true,
+          "changed_entries": 3126907,
+          "changed_rows": 1024,
+          "changed_columns": 3584,
+          "spectral_rank": {
+            "rank": 1,
+            "leading_singular_values": [
+              0.7241305192547385,
+              0.002753116431848199,
+              0.002143218353222153,
+              0.0021091558747501054,
+              0.0020094721071747686
+            ]
+          },
+          "low_rank_1": {
+            "rank": 1,
+            "plain_svd_mismatches": 186900,
+            "refined_mismatches": 28004,
+            "refinement_steps_used": 60,
+            "relative_residual": 0.03382756797287222,
+            "leading_singular_values": [
+              0.7241305192547385
+            ]
+          },
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 3126907,
+              "bytes": 18761442
+            },
+            {
+              "kind": "low_rank",
+              "rank": 1,
+              "support_columns": 3584,
+              "fixups": 28004,
+              "bytes": 200792
+            }
+          ],
+          "smallest_exact": "low_rank",
+          "serving_cost_per_token": {
+            "lora_madds": 4608,
+            "fixup_madds": 28004
+          },
+          "dense_matmul_madds_per_token": 3670016,
+          "authors_factors": {
+            "rank": 1,
+            "fixups": 10,
+            "bytes": 32828
+          }
+        },
+        {
+          "tensor": "model.language_model.layers.13.linear_attn.out_proj.weight",
+          "shape": [
+            1024,
+            2048
+          ],
+          "authors_form": "lowrank",
+          "edited_hash_verified": true,
+          "changed_entries": 1821858,
+          "changed_rows": 1024,
+          "changed_columns": 2048,
+          "spectral_rank": {
+            "rank": 1,
+            "leading_singular_values": [
+              0.8455428966899337,
+              0.003111083490926754,
+              0.0024451578454528547,
+              0.00234399261072975,
+              0.002300361156246209
+            ]
+          },
+          "low_rank_1": {
+            "rank": 1,
+            "plain_svd_mismatches": 103316,
+            "refined_mismatches": 16403,
+            "refinement_steps_used": 60,
+            "relative_residual": 0.03212042631403821,
+            "leading_singular_values": [
+              0.8455428966899335
+            ]
+          },
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 1821858,
+              "bytes": 10931148
+            },
+            {
+              "kind": "low_rank",
+              "rank": 1,
+              "support_columns": 2048,
+              "fixups": 16403,
+              "bytes": 118898
+            }
+          ],
+          "smallest_exact": "low_rank",
+          "serving_cost_per_token": {
+            "lora_madds": 3072,
+            "fixup_madds": 16403
+          },
+          "dense_matmul_madds_per_token": 2097152,
+          "authors_factors": {
+            "rank": 1,
+            "fixups": 10,
+            "bytes": 20540
+          }
+        },
+        {
+          "tensor": "model.language_model.layers.13.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3584
+          ],
+          "authors_form": "lowrank",
+          "edited_hash_verified": true,
+          "changed_entries": 3143337,
+          "changed_rows": 1024,
+          "changed_columns": 3583,
+          "spectral_rank": {
+            "rank": 1,
+            "leading_singular_values": [
+              0.7567628535802037,
+              0.0027796913636794034,
+              0.002128276386453984,
+              0.0020803220442387766,
+              0.002051155318200632
+            ]
+          },
+          "low_rank_1": {
+            "rank": 1,
+            "plain_svd_mismatches": 176726,
+            "refined_mismatches": 27302,
+            "refinement_steps_used": 60,
+            "relative_residual": 0.032794059577699916,
+            "leading_singular_values": [
+              0.756762853580204
+            ]
+          },
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 3143337,
+              "bytes": 18860022
+            },
+            {
+              "kind": "low_rank",
+              "rank": 1,
+              "support_columns": 3583,
+              "fixups": 27302,
+              "bytes": 196572
+            }
+          ],
+          "smallest_exact": "low_rank",
+          "serving_cost_per_token": {
+            "lora_madds": 4607,
+            "fixup_madds": 27302
+          },
+          "dense_matmul_madds_per_token": 3670016,
+          "authors_factors": {
+            "rank": 1,
+            "fixups": 22,
+            "bytes": 32900
+          }
+        },
+        {
+          "tensor": "model.language_model.layers.14.linear_attn.out_proj.weight",
+          "shape": [
+            1024,
+            2048
+          ],
+          "authors_form": "lowrank",
+          "edited_hash_verified": true,
+          "changed_entries": 1786208,
+          "changed_rows": 1024,
+          "changed_columns": 2048,
+          "spectral_rank": {
+            "rank": 1,
+            "leading_singular_values": [
+              0.9197003716095168,
+              0.003220468576224215,
+              0.0024723804543999874,
+              0.0023623107512513244,
+              0.0022658192120965748
+            ]
+          },
+          "low_rank_1": {
+            "rank": 1,
+            "plain_svd_mismatches": 105859,
+            "refined_mismatches": 16166,
+            "refinement_steps_used": 60,
+            "relative_residual": 0.029587681484487267,
+            "leading_singular_values": [
+              0.9197003716095168
+            ]
+          },
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 1786208,
+              "bytes": 10717248
+            },
+            {
+              "kind": "low_rank",
+              "rank": 1,
+              "support_columns": 2048,
+              "fixups": 16166,
+              "bytes": 117476
+            }
+          ],
+          "smallest_exact": "low_rank",
+          "serving_cost_per_token": {
+            "lora_madds": 3072,
+            "fixup_madds": 16166
+          },
+          "dense_matmul_madds_per_token": 2097152,
+          "authors_factors": {
+            "rank": 1,
+            "fixups": 7,
+            "bytes": 20522
+          }
+        },
+        {
+          "tensor": "model.language_model.layers.14.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3584
+          ],
+          "authors_form": "lowrank",
+          "edited_hash_verified": true,
+          "changed_entries": 3077921,
+          "changed_rows": 1024,
+          "changed_columns": 3583,
+          "spectral_rank": {
+            "rank": 1,
+            "leading_singular_values": [
+              0.7230097331833192,
+              0.0027117765455981066,
+              0.002207889940194687,
+              0.002058534340741816,
+              0.002035767741909638
+            ]
+          },
+          "low_rank_1": {
+            "rank": 1,
+            "plain_svd_mismatches": 184619,
+            "refined_mismatches": 27819,
+            "refinement_steps_used": 60,
+            "relative_residual": 0.03345281670991241,
+            "leading_singular_values": [
+              0.723009733183319
+            ]
+          },
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 3077921,
+              "bytes": 18467526
+            },
+            {
+              "kind": "low_rank",
+              "rank": 1,
+              "support_columns": 3583,
+              "fixups": 27819,
+              "bytes": 199674
+            }
+          ],
+          "smallest_exact": "low_rank",
+          "serving_cost_per_token": {
+            "lora_madds": 4607,
+            "fixup_madds": 27819
+          },
+          "dense_matmul_madds_per_token": 3670016,
+          "authors_factors": {
+            "rank": 1,
+            "fixups": 13,
+            "bytes": 32846
+          }
+        },
+        {
+          "tensor": "model.language_model.layers.15.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3584
+          ],
+          "authors_form": "lowrank",
+          "edited_hash_verified": true,
+          "changed_entries": 3036185,
+          "changed_rows": 1024,
+          "changed_columns": 3584,
+          "spectral_rank": {
+            "rank": 1,
+            "leading_singular_values": [
+              0.7932530900167907,
+              0.0032762691600850147,
+              0.002466555620501266,
+              0.0023469527660926618,
+              0.002280151185538339
+            ]
+          },
+          "low_rank_1": {
+            "rank": 1,
+            "plain_svd_mismatches": 178674,
+            "refined_mismatches": 25121,
+            "refinement_steps_used": 60,
+            "relative_residual": 0.03301536949621241,
+            "leading_singular_values": [
+              0.7932530900167907
+            ]
+          },
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 3036185,
+              "bytes": 18217110
+            },
+            {
+              "kind": "low_rank",
+              "rank": 1,
+              "support_columns": 3584,
+              "fixups": 25121,
+              "bytes": 183494
+            }
+          ],
+          "smallest_exact": "low_rank",
+          "serving_cost_per_token": {
+            "lora_madds": 4608,
+            "fixup_madds": 25121
+          },
+          "dense_matmul_madds_per_token": 3670016,
+          "authors_factors": {
+            "rank": 1,
+            "fixups": 17,
+            "bytes": 32870
+          }
+        },
+        {
+          "tensor": "model.language_model.layers.15.self_attn.o_proj.weight",
+          "shape": [
+            1024,
+            2048
+          ],
+          "authors_form": "lowrank",
+          "edited_hash_verified": true,
+          "changed_entries": 1778365,
+          "changed_rows": 1023,
+          "changed_columns": 2048,
+          "spectral_rank": {
+            "rank": 1,
+            "leading_singular_values": [
+              0.9048927767826741,
+              0.004000561313628838,
+              0.0030873542550752505,
+              0.0029177345056017505,
+              0.002769602959733443
+            ]
+          },
+          "low_rank_1": {
+            "rank": 1,
+            "plain_svd_mismatches": 111986,
+            "refined_mismatches": 16338,
+            "refinement_steps_used": 60,
+            "relative_residual": 0.03556153116549353,
+            "leading_singular_values": [
+              0.9048927767826747
+            ]
+          },
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 1778365,
+              "bytes": 10670190
+            },
+            {
+              "kind": "low_rank",
+              "rank": 1,
+              "support_columns": 2048,
+              "fixups": 16338,
+              "bytes": 118508
+            }
+          ],
+          "smallest_exact": "low_rank",
+          "serving_cost_per_token": {
+            "lora_madds": 3072,
+            "fixup_madds": 16338
+          },
+          "dense_matmul_madds_per_token": 2097152,
+          "authors_factors": {
+            "rank": 1,
+            "fixups": 10,
+            "bytes": 20540
+          }
+        },
+        {
+          "tensor": "model.language_model.layers.16.linear_attn.out_proj.weight",
+          "shape": [
+            1024,
+            2048
+          ],
+          "authors_form": "lowrank",
+          "edited_hash_verified": true,
+          "changed_entries": 1752956,
+          "changed_rows": 1024,
+          "changed_columns": 2048,
+          "spectral_rank": {
+            "rank": 1,
+            "leading_singular_values": [
+              0.8567341245452511,
+              0.0030306841361995803,
+              0.0023599235776233774,
+              0.0022631809033714922,
+              0.0022079496891911107
+            ]
+          },
+          "low_rank_1": {
+            "rank": 1,
+            "plain_svd_mismatches": 103305,
+            "refined_mismatches": 16052,
+            "refinement_steps_used": 60,
+            "relative_residual": 0.029992604910387896,
+            "leading_singular_values": [
+              0.8567341245452512
+            ]
+          },
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 1752956,
+              "bytes": 10517736
+            },
+            {
+              "kind": "low_rank",
+              "rank": 1,
+              "support_columns": 2048,
+              "fixups": 16052,
+              "bytes": 116792
+            }
+          ],
+          "smallest_exact": "low_rank",
+          "serving_cost_per_token": {
+            "lora_madds": 3072,
+            "fixup_madds": 16052
+          },
+          "dense_matmul_madds_per_token": 2097152,
+          "authors_factors": {
+            "rank": 1,
+            "fixups": 3,
+            "bytes": 20498
+          }
+        },
+        {
+          "tensor": "model.language_model.layers.16.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3584
+          ],
+          "authors_form": "lowrank",
+          "edited_hash_verified": true,
+          "changed_entries": 3003946,
+          "changed_rows": 1024,
+          "changed_columns": 3584,
+          "spectral_rank": {
+            "rank": 1,
+            "leading_singular_values": [
+              0.6449254995455881,
+              0.0034125684071299794,
+              0.0024836528522260487,
+              0.0024356904171324275,
+              0.002300595359519918
+            ]
+          },
+          "low_rank_1": {
+            "rank": 1,
+            "plain_svd_mismatches": 191191,
+            "refined_mismatches": 25206,
+            "refinement_steps_used": 60,
+            "relative_residual": 0.04047127517529419,
+            "leading_singular_values": [
+              0.6449254995455882
+            ]
+          },
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 3003946,
+              "bytes": 18023676
+            },
+            {
+              "kind": "low_rank",
+              "rank": 1,
+              "support_columns": 3584,
+              "fixups": 25206,
+              "bytes": 184004
+            }
+          ],
+          "smallest_exact": "low_rank",
+          "serving_cost_per_token": {
+            "lora_madds": 4608,
+            "fixup_madds": 25206
+          },
+          "dense_matmul_madds_per_token": 3670016,
+          "authors_factors": {
+            "rank": 1,
+            "fixups": 13,
+            "bytes": 32846
+          }
+        },
+        {
+          "tensor": "model.language_model.layers.17.linear_attn.out_proj.weight",
+          "shape": [
+            1024,
+            2048
+          ],
+          "authors_form": "lowrank",
+          "edited_hash_verified": true,
+          "changed_entries": 1758590,
+          "changed_rows": 1024,
+          "changed_columns": 2048,
+          "spectral_rank": {
+            "rank": 1,
+            "leading_singular_values": [
+              0.8434444995630717,
+              0.0031347074799409204,
+              0.002334789006088919,
+              0.002217549130293098,
+              0.0022074034819270175
+            ]
+          },
+          "low_rank_1": {
+            "rank": 1,
+            "plain_svd_mismatches": 103952,
+            "refined_mismatches": 16023,
+            "refinement_steps_used": 60,
+            "relative_residual": 0.029500563371818025,
+            "leading_singular_values": [
+              0.8434444995630715
+            ]
+          },
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 1758590,
+              "bytes": 10551540
+            },
+            {
+              "kind": "low_rank",
+              "rank": 1,
+              "support_columns": 2048,
+              "fixups": 16023,
+              "bytes": 116618
+            }
+          ],
+          "smallest_exact": "low_rank",
+          "serving_cost_per_token": {
+            "lora_madds": 3072,
+            "fixup_madds": 16023
+          },
+          "dense_matmul_madds_per_token": 2097152,
+          "authors_factors": {
+            "rank": 1,
+            "fixups": 7,
+            "bytes": 20522
+          }
+        },
+        {
+          "tensor": "model.language_model.layers.17.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3584
+          ],
+          "authors_form": "lowrank",
+          "edited_hash_verified": true,
+          "changed_entries": 3013386,
+          "changed_rows": 1024,
+          "changed_columns": 3584,
+          "spectral_rank": {
+            "rank": 1,
+            "leading_singular_values": [
+              0.6492536616299862,
+              0.0034284779496995418,
+              0.002445080579402389,
+              0.0023211234068208344,
+              0.002291492492877289
+            ]
+          },
+          "low_rank_1": {
+            "rank": 1,
+            "plain_svd_mismatches": 190860,
+            "refined_mismatches": 26836,
+            "refinement_steps_used": 60,
+            "relative_residual": 0.04039801515981705,
+            "leading_singular_values": [
+              0.649253661629986
+            ]
+          },
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 3013386,
+              "bytes": 18080316
+            },
+            {
+              "kind": "low_rank",
+              "rank": 1,
+              "support_columns": 3584,
+              "fixups": 26836,
+              "bytes": 193784
+            }
+          ],
+          "smallest_exact": "low_rank",
+          "serving_cost_per_token": {
+            "lora_madds": 4608,
+            "fixup_madds": 26836
+          },
+          "dense_matmul_madds_per_token": 3670016,
+          "authors_factors": {
+            "rank": 1,
+            "fixups": 9,
+            "bytes": 32822
+          }
+        },
+        {
+          "tensor": "model.language_model.layers.18.linear_attn.out_proj.weight",
+          "shape": [
+            1024,
+            2048
+          ],
+          "authors_form": "lowrank",
+          "edited_hash_verified": true,
+          "changed_entries": 1711544,
+          "changed_rows": 1024,
+          "changed_columns": 2047,
+          "spectral_rank": {
+            "rank": 1,
+            "leading_singular_values": [
+              0.6343967818880265,
+              0.002982953828855585,
+              0.0022183490725787005,
+              0.0021546162163831907,
+              0.002108930702641123
+            ]
+          },
+          "low_rank_1": {
+            "rank": 1,
+            "plain_svd_mismatches": 111401,
+            "refined_mismatches": 15961,
+            "refinement_steps_used": 60,
+            "relative_residual": 0.03672687254256854,
+            "leading_singular_values": [
+              0.6343967818880262
+            ]
+          },
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 1711544,
+              "bytes": 10269264
+            },
+            {
+              "kind": "low_rank",
+              "rank": 1,
+              "support_columns": 2047,
+              "fixups": 15961,
+              "bytes": 116238
+            }
+          ],
+          "smallest_exact": "low_rank",
+          "serving_cost_per_token": {
+            "lora_madds": 3071,
+            "fixup_madds": 15961
+          },
+          "dense_matmul_madds_per_token": 2097152,
+          "authors_factors": {
+            "rank": 1,
+            "fixups": 4,
+            "bytes": 20504
+          }
+        },
+        {
+          "tensor": "model.language_model.layers.18.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3584
+          ],
+          "authors_form": "lowrank",
+          "edited_hash_verified": true,
+          "changed_entries": 2954165,
+          "changed_rows": 1024,
+          "changed_columns": 3584,
+          "spectral_rank": {
+            "rank": 1,
+            "leading_singular_values": [
+              0.5564111767849744,
+              0.0035004459421510486,
+              0.0024977544108796693,
+              0.002393594061947863,
+              0.002340845842467276
+            ]
+          },
+          "low_rank_1": {
+            "rank": 1,
+            "plain_svd_mismatches": 204029,
+            "refined_mismatches": 27862,
+            "refinement_steps_used": 60,
+            "relative_residual": 0.046942024328934434,
+            "leading_singular_values": [
+              0.5564111767849744
+            ]
+          },
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 2954165,
+              "bytes": 17724990
+            },
+            {
+              "kind": "low_rank",
+              "rank": 1,
+              "support_columns": 3584,
+              "fixups": 27862,
+              "bytes": 199940
+            }
+          ],
+          "smallest_exact": "low_rank",
+          "serving_cost_per_token": {
+            "lora_madds": 4608,
+            "fixup_madds": 27862
+          },
+          "dense_matmul_madds_per_token": 3670016,
+          "authors_factors": {
+            "rank": 1,
+            "fixups": 8,
+            "bytes": 32816
+          }
+        },
+        {
+          "tensor": "model.language_model.layers.19.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3584
+          ],
+          "authors_form": "lowrank",
+          "edited_hash_verified": true,
+          "changed_entries": 3043697,
+          "changed_rows": 1024,
+          "changed_columns": 3582,
+          "spectral_rank": {
+            "rank": 1,
+            "leading_singular_values": [
+              0.7515985886804113,
+              0.0032816030262192123,
+              0.0024687019574759776,
+              0.002387792076198685,
+              0.0023520175174996734
+            ]
+          },
+          "low_rank_1": {
+            "rank": 1,
+            "plain_svd_mismatches": 185977,
+            "refined_mismatches": 26409,
+            "refinement_steps_used": 60,
+            "relative_residual": 0.03670173582580216,
+            "leading_singular_values": [
+              0.7515985886804109
+            ]
+          },
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 3043697,
+              "bytes": 18262182
+            },
+            {
+              "kind": "low_rank",
+              "rank": 1,
+              "support_columns": 3582,
+              "fixups": 26409,
+              "bytes": 191206
+            }
+          ],
+          "smallest_exact": "low_rank",
+          "serving_cost_per_token": {
+            "lora_madds": 4606,
+            "fixup_madds": 26409
+          },
+          "dense_matmul_madds_per_token": 3670016,
+          "authors_factors": {
+            "rank": 1,
+            "fixups": 14,
+            "bytes": 32852
+          }
+        },
+        {
+          "tensor": "model.language_model.layers.19.self_attn.o_proj.weight",
+          "shape": [
+            1024,
+            2048
+          ],
+          "authors_form": "lowrank",
+          "edited_hash_verified": true,
+          "changed_entries": 1727860,
+          "changed_rows": 1024,
+          "changed_columns": 2048,
+          "spectral_rank": {
+            "rank": 1,
+            "leading_singular_values": [
+              1.0163048286441545,
+              0.004982476854532882,
+              0.003736134704474438,
+              0.0035998381427605375,
+              0.003345480045537622
+            ]
+          },
+          "low_rank_1": {
+            "rank": 1,
+            "plain_svd_mismatches": 118140,
+            "refined_mismatches": 16726,
+            "refinement_steps_used": 60,
+            "relative_residual": 0.037768967994795774,
+            "leading_singular_values": [
+              1.0163048286441543
+            ]
+          },
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 1727860,
+              "bytes": 10367160
+            },
+            {
+              "kind": "low_rank",
+              "rank": 1,
+              "support_columns": 2048,
+              "fixups": 16726,
+              "bytes": 120836
+            }
+          ],
+          "smallest_exact": "low_rank",
+          "serving_cost_per_token": {
+            "lora_madds": 3072,
+            "fixup_madds": 16726
+          },
+          "dense_matmul_madds_per_token": 2097152,
+          "authors_factors": {
+            "rank": 1,
+            "fixups": 11,
+            "bytes": 20546
+          }
+        },
+        {
+          "tensor": "model.language_model.layers.20.linear_attn.out_proj.weight",
+          "shape": [
+            1024,
+            2048
+          ],
+          "authors_form": "lowrank",
+          "edited_hash_verified": true,
+          "changed_entries": 1758062,
+          "changed_rows": 1024,
+          "changed_columns": 2048,
+          "spectral_rank": {
+            "rank": 1,
+            "leading_singular_values": [
+              0.7191979572431482,
+              0.0029642995488641257,
+              0.0022972257085651406,
+              0.0022231130368103973,
+              0.002122902075305689
+            ]
+          },
+          "low_rank_1": {
+            "rank": 1,
+            "plain_svd_mismatches": 109390,
+            "refined_mismatches": 16416,
+            "refinement_steps_used": 60,
+            "relative_residual": 0.034029351856245504,
+            "leading_singular_values": [
+              0.7191979572431481
+            ]
+          },
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 1758062,
+              "bytes": 10548372
+            },
+            {
+              "kind": "low_rank",
+              "rank": 1,
+              "support_columns": 2048,
+              "fixups": 16416,
+              "bytes": 118976
+            }
+          ],
+          "smallest_exact": "low_rank",
+          "serving_cost_per_token": {
+            "lora_madds": 3072,
+            "fixup_madds": 16416
+          },
+          "dense_matmul_madds_per_token": 2097152,
+          "authors_factors": {
+            "rank": 1,
+            "fixups": 8,
+            "bytes": 20528
+          }
+        },
+        {
+          "tensor": "model.language_model.layers.20.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3584
+          ],
+          "authors_form": "lowrank",
+          "edited_hash_verified": true,
+          "changed_entries": 2982508,
+          "changed_rows": 1024,
+          "changed_columns": 3584,
+          "spectral_rank": {
+            "rank": 1,
+            "leading_singular_values": [
+              0.6474788006341953,
+              0.0035716138609341174,
+              0.002598758593575954,
+              0.0025000397954166873,
+              0.0024157724424139953
+            ]
+          },
+          "low_rank_1": {
+            "rank": 1,
+            "plain_svd_mismatches": 199025,
+            "refined_mismatches": 27833,
+            "refinement_steps_used": 60,
+            "relative_residual": 0.042923447577171474,
+            "leading_singular_values": [
+              0.6474788006341949
+            ]
+          },
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 2982508,
+              "bytes": 17895048
+            },
+            {
+              "kind": "low_rank",
+              "rank": 1,
+              "support_columns": 3584,
+              "fixups": 27833,
+              "bytes": 199766
+            }
+          ],
+          "smallest_exact": "low_rank",
+          "serving_cost_per_token": {
+            "lora_madds": 4608,
+            "fixup_madds": 27833
+          },
+          "dense_matmul_madds_per_token": 3670016,
+          "authors_factors": {
+            "rank": 1,
+            "fixups": 10,
+            "bytes": 32828
+          }
+        },
+        {
+          "tensor": "model.language_model.layers.21.linear_attn.out_proj.weight",
+          "shape": [
+            1024,
+            2048
+          ],
+          "authors_form": "lowrank",
+          "edited_hash_verified": true,
+          "changed_entries": 1770315,
+          "changed_rows": 1024,
+          "changed_columns": 2048,
+          "spectral_rank": {
+            "rank": 1,
+            "leading_singular_values": [
+              0.7543856468360499,
+              0.0033270838512883733,
+              0.0025513260143854334,
+              0.002352404263121228,
+              0.0022880120809097492
+            ]
+          },
+          "low_rank_1": {
+            "rank": 1,
+            "plain_svd_mismatches": 113100,
+            "refined_mismatches": 17214,
+            "refinement_steps_used": 60,
+            "relative_residual": 0.03581200291398455,
+            "leading_singular_values": [
+              0.7543856468360501
+            ]
+          },
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 1770315,
+              "bytes": 10621890
+            },
+            {
+              "kind": "low_rank",
+              "rank": 1,
+              "support_columns": 2048,
+              "fixups": 17214,
+              "bytes": 123764
+            }
+          ],
+          "smallest_exact": "low_rank",
+          "serving_cost_per_token": {
+            "lora_madds": 3072,
+            "fixup_madds": 17214
+          },
+          "dense_matmul_madds_per_token": 2097152,
+          "authors_factors": {
+            "rank": 1,
+            "fixups": 12,
+            "bytes": 20552
+          }
+        },
+        {
+          "tensor": "model.language_model.layers.21.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3584
+          ],
+          "authors_form": "lowrank",
+          "edited_hash_verified": true,
+          "changed_entries": 3061835,
+          "changed_rows": 1024,
+          "changed_columns": 3584,
+          "spectral_rank": {
+            "rank": 1,
+            "leading_singular_values": [
+              0.7331907058533014,
+              0.0034663086663541424,
+              0.002626143053542656,
+              0.002470751002801278,
+              0.0024335178769242737
+            ]
+          },
+          "low_rank_1": {
+            "rank": 1,
+            "plain_svd_mismatches": 189729,
+            "refined_mismatches": 27672,
+            "refinement_steps_used": 60,
+            "relative_residual": 0.038722115190981767,
+            "leading_singular_values": [
+              0.7331907058533015
+            ]
+          },
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 3061835,
+              "bytes": 18371010
+            },
+            {
+              "kind": "low_rank",
+              "rank": 1,
+              "support_columns": 3584,
+              "fixups": 27672,
+              "bytes": 198800
+            }
+          ],
+          "smallest_exact": "low_rank",
+          "serving_cost_per_token": {
+            "lora_madds": 4608,
+            "fixup_madds": 27672
+          },
+          "dense_matmul_madds_per_token": 3670016,
+          "authors_factors": {
+            "rank": 1,
+            "fixups": 9,
+            "bytes": 32822
+          }
+        },
+        {
+          "tensor": "model.language_model.layers.22.linear_attn.out_proj.weight",
+          "shape": [
+            1024,
+            2048
+          ],
+          "authors_form": "lowrank",
+          "edited_hash_verified": true,
+          "changed_entries": 1795459,
+          "changed_rows": 1024,
+          "changed_columns": 2048,
+          "spectral_rank": {
+            "rank": 1,
+            "leading_singular_values": [
+              0.9287953654994464,
+              0.0033355712095269083,
+              0.0025434247019024804,
+              0.002469307315190025,
+              0.0024470524191314577
+            ]
+          },
+          "low_rank_1": {
+            "rank": 1,
+            "plain_svd_mismatches": 105138,
+            "refined_mismatches": 16196,
+            "refinement_steps_used": 60,
+            "relative_residual": 0.03080988520499309,
+            "leading_singular_values": [
+              0.9287953654994463
+            ]
+          },
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 1795459,
+              "bytes": 10772754
+            },
+            {
+              "kind": "low_rank",
+              "rank": 1,
+              "support_columns": 2048,
+              "fixups": 16196,
+              "bytes": 117656
+            }
+          ],
+          "smallest_exact": "low_rank",
+          "serving_cost_per_token": {
+            "lora_madds": 3072,
+            "fixup_madds": 16196
+          },
+          "dense_matmul_madds_per_token": 2097152,
+          "authors_factors": {
+            "rank": 1,
+            "fixups": 7,
+            "bytes": 20522
+          }
+        },
+        {
+          "tensor": "model.language_model.layers.22.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3584
+          ],
+          "authors_form": "lowrank",
+          "edited_hash_verified": true,
+          "changed_entries": 3103784,
+          "changed_rows": 1024,
+          "changed_columns": 3584,
+          "spectral_rank": {
+            "rank": 1,
+            "leading_singular_values": [
+              0.7668566966240609,
+              0.0032703641251429017,
+              0.0024549104117782125,
+              0.0024023196852489184,
+              0.0023687274694345066
+            ]
+          },
+          "low_rank_1": {
+            "rank": 1,
+            "plain_svd_mismatches": 183230,
+            "refined_mismatches": 27410,
+            "refinement_steps_used": 60,
+            "relative_residual": 0.03682776903136677,
+            "leading_singular_values": [
+              0.7668566966240609
+            ]
+          },
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 3103784,
+              "bytes": 18622704
+            },
+            {
+              "kind": "low_rank",
+              "rank": 1,
+              "support_columns": 3584,
+              "fixups": 27410,
+              "bytes": 197228
+            }
+          ],
+          "smallest_exact": "low_rank",
+          "serving_cost_per_token": {
+            "lora_madds": 4608,
+            "fixup_madds": 27410
+          },
+          "dense_matmul_madds_per_token": 3670016,
+          "authors_factors": {
+            "rank": 1,
+            "fixups": 8,
+            "bytes": 32816
+          }
+        },
+        {
+          "tensor": "model.language_model.layers.8.linear_attn.out_proj.weight",
+          "shape": [
+            1024,
+            2048
+          ],
+          "authors_form": "lowrank",
+          "edited_hash_verified": true,
+          "changed_entries": 1769753,
+          "changed_rows": 1024,
+          "changed_columns": 2048,
+          "spectral_rank": {
+            "rank": 1,
+            "leading_singular_values": [
+              0.8987289410770647,
+              0.0032441294842623343,
+              0.0025899245588810204,
+              0.002557920192847111,
+              0.0023952917037873213
+            ]
+          },
+          "low_rank_1": {
+            "rank": 1,
+            "plain_svd_mismatches": 112417,
+            "refined_mismatches": 16674,
+            "refinement_steps_used": 60,
+            "relative_residual": 0.029361234216752304,
+            "leading_singular_values": [
+              0.8987289410770642
+            ]
+          },
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 1769753,
+              "bytes": 10618518
+            },
+            {
+              "kind": "low_rank",
+              "rank": 1,
+              "support_columns": 2048,
+              "fixups": 16674,
+              "bytes": 120524
+            }
+          ],
+          "smallest_exact": "low_rank",
+          "serving_cost_per_token": {
+            "lora_madds": 3072,
+            "fixup_madds": 16674
+          },
+          "dense_matmul_madds_per_token": 2097152,
+          "authors_factors": {
+            "rank": 1,
+            "fixups": 9,
+            "bytes": 20534
+          }
+        },
+        {
+          "tensor": "model.language_model.layers.8.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3584
+          ],
+          "authors_form": "lowrank",
+          "edited_hash_verified": true,
+          "changed_entries": 3069682,
+          "changed_rows": 1024,
+          "changed_columns": 3583,
+          "spectral_rank": {
+            "rank": 1,
+            "leading_singular_values": [
+              0.7123301352822735,
+              0.002974080163985641,
+              0.002265843808905595,
+              0.002239426318655397,
+              0.0021283878405944493
+            ]
+          },
+          "low_rank_1": {
+            "rank": 1,
+            "plain_svd_mismatches": 193942,
+            "refined_mismatches": 27980,
+            "refinement_steps_used": 60,
+            "relative_residual": 0.03446573278558348,
+            "leading_singular_values": [
+              0.7123301352822732
+            ]
+          },
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 3069682,
+              "bytes": 18418092
+            },
+            {
+              "kind": "low_rank",
+              "rank": 1,
+              "support_columns": 3583,
+              "fixups": 27980,
+              "bytes": 200640
+            }
+          ],
+          "smallest_exact": "low_rank",
+          "serving_cost_per_token": {
+            "lora_madds": 4607,
+            "fixup_madds": 27980
+          },
+          "dense_matmul_madds_per_token": 3670016,
+          "authors_factors": {
+            "rank": 1,
+            "fixups": 18,
+            "bytes": 32876
+          }
+        },
+        {
+          "tensor": "model.language_model.layers.9.linear_attn.out_proj.weight",
+          "shape": [
+            1024,
+            2048
+          ],
+          "authors_form": "lowrank",
+          "edited_hash_verified": true,
+          "changed_entries": 1844797,
+          "changed_rows": 1023,
+          "changed_columns": 2048,
+          "spectral_rank": {
+            "rank": 1,
+            "leading_singular_values": [
+              0.8862318405670634,
+              0.003076078978656588,
+              0.002741594653873112,
+              0.002383420551574594,
+              0.002362891328731494
+            ]
+          },
+          "low_rank_1": {
+            "rank": 1,
+            "plain_svd_mismatches": 113838,
+            "refined_mismatches": 17539,
+            "refinement_steps_used": 60,
+            "relative_residual": 0.029745389317162627,
+            "leading_singular_values": [
+              0.8862318405670628
+            ]
+          },
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 1844797,
+              "bytes": 11068782
+            },
+            {
+              "kind": "low_rank",
+              "rank": 1,
+              "support_columns": 2048,
+              "fixups": 17539,
+              "bytes": 125714
+            }
+          ],
+          "smallest_exact": "low_rank",
+          "serving_cost_per_token": {
+            "lora_madds": 3072,
+            "fixup_madds": 17539
+          },
+          "dense_matmul_madds_per_token": 2097152,
+          "authors_factors": {
+            "rank": 1,
+            "fixups": 13,
+            "bytes": 20558
+          }
+        },
+        {
+          "tensor": "model.language_model.layers.9.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3584
+          ],
+          "authors_form": "lowrank",
+          "edited_hash_verified": true,
+          "changed_entries": 3187452,
+          "changed_rows": 1024,
+          "changed_columns": 3584,
+          "spectral_rank": {
+            "rank": 1,
+            "leading_singular_values": [
+              0.8160482712873564,
+              0.002826902432456711,
+              0.0023518270333307014,
+              0.002150562121707449,
+              0.002124017960848691
+            ]
+          },
+          "low_rank_1": {
+            "rank": 1,
+            "plain_svd_mismatches": 184250,
+            "refined_mismatches": 28946,
+            "refinement_steps_used": 60,
+            "relative_residual": 0.03078033263182894,
+            "leading_singular_values": [
+              0.816048271287357
+            ]
+          },
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 3187452,
+              "bytes": 19124712
+            },
+            {
+              "kind": "low_rank",
+              "rank": 1,
+              "support_columns": 3584,
+              "fixups": 28946,
+              "bytes": 206444
+            }
+          ],
+          "smallest_exact": "low_rank",
+          "serving_cost_per_token": {
+            "lora_madds": 4608,
+            "fixup_madds": 28946
+          },
+          "dense_matmul_madds_per_token": 3670016,
+          "authors_factors": {
+            "rank": 1,
+            "fixups": 14,
+            "bytes": 32852
+          }
+        }
+      ]
+    },
+    "p25c": {
+      "status": "compiled",
+      "tensors": 1,
+      "smallest_exact_kinds": [
+        "channel_scale"
+      ],
+      "total_bytes_smallest": 2048,
+      "total_bytes_authors_bundle": 363541,
+      "dense_bytes_bf16": 4194304,
+      "peft_adapter": {
+        "rank": 256,
+        "target_modules": [
+          "o_proj"
+        ],
+        "modules": 1,
+        "bytes": 3146032
+      },
+      "seconds": 0.4,
+      "rows": [
+        {
+          "tensor": "model.language_model.layers.15.self_attn.o_proj.weight",
+          "shape": [
+            1024,
+            2048
+          ],
+          "authors_form": "sparse",
+          "edited_hash_verified": true,
+          "changed_entries": 262144,
+          "changed_rows": 1024,
+          "changed_columns": 256,
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 262144,
+              "bytes": 1572864
+            },
+            {
+              "kind": "channel_scale",
+              "columns": 256,
+              "scales": {
+                "0.0": 256
+              },
+              "assigned_zero_columns": 256,
+              "bytes": 2048
+            }
+          ],
+          "smallest_exact": "channel_scale",
+          "serving_cost_per_token": {
+            "input_mask_madds": 256,
+            "lora_madds": 262400
+          },
+          "dense_matmul_madds_per_token": 2097152
+        }
+      ]
+    },
+    "p50c": {
+      "status": "compiled",
+      "tensors": 2,
+      "smallest_exact_kinds": [
+        "low_rank"
+      ],
+      "total_bytes_smallest": 18234,
+      "total_bytes_authors_bundle": 387619,
+      "dense_bytes_bf16": 14680064,
+      "peft_adapter": {
+        "rank": 1,
+        "target_modules": [
+          "down_proj"
+        ],
+        "modules": 2,
+        "bytes": 37432
+      },
+      "seconds": 0.5,
+      "rows": [
+        {
+          "tensor": "model.language_model.layers.15.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3584
+          ],
+          "authors_form": "sparse",
+          "edited_hash_verified": true,
+          "changed_entries": 65260,
+          "changed_rows": 1024,
+          "changed_columns": 64,
+          "spectral_rank": {
+            "rank": 1,
+            "leading_singular_values": [
+              1.7488828458330974,
+              0.0009874117289577235,
+              0.0009485556688928104,
+              0.0008693150270275488,
+              0.0008093058364813057
+            ]
+          },
+          "low_rank_1": {
+            "rank": 1,
+            "plain_svd_mismatches": 5888,
+            "refined_mismatches": 768,
+            "refinement_steps_used": 299,
+            "relative_residual": 0.002367359444071052,
+            "leading_singular_values": [
+              1.7488828458330974
+            ]
+          },
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 65260,
+              "bytes": 391560
+            },
+            {
+              "kind": "low_rank",
+              "rank": 1,
+              "support_columns": 64,
+              "fixups": 768,
+              "bytes": 9216
+            }
+          ],
+          "smallest_exact": "low_rank",
+          "serving_cost_per_token": {
+            "lora_madds": 1088,
+            "fixup_madds": 768
+          },
+          "dense_matmul_madds_per_token": 3670016
+        },
+        {
+          "tensor": "model.language_model.layers.19.mlp.down_proj.weight",
+          "shape": [
+            1024,
+            3584
+          ],
+          "authors_form": "sparse",
+          "edited_hash_verified": true,
+          "changed_entries": 64928,
+          "changed_rows": 1023,
+          "changed_columns": 64,
+          "spectral_rank": {
+            "rank": 1,
+            "leading_singular_values": [
+              1.3987571638936873,
+              0.0009012574988010789,
+              0.0008135843416199388,
+              0.0007443478507049618,
+              0.0007052137362652523
+            ]
+          },
+          "low_rank_1": {
+            "rank": 1,
+            "plain_svd_mismatches": 6156,
+            "refined_mismatches": 735,
+            "refinement_steps_used": 266,
+            "relative_residual": 0.002971098847691103,
+            "leading_singular_values": [
+              1.3987571638936869
+            ]
+          },
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 64928,
+              "bytes": 389568
+            },
+            {
+              "kind": "low_rank",
+              "rank": 1,
+              "support_columns": 64,
+              "fixups": 735,
+              "bytes": 9018
+            }
+          ],
+          "smallest_exact": "low_rank",
+          "serving_cost_per_token": {
+            "lora_madds": 1088,
+            "fixup_madds": 735
+          },
+          "dense_matmul_madds_per_token": 3670016
+        }
+      ]
+    },
+    "g05b": {
+      "status": "compiled",
+      "tensors": 12,
+      "smallest_exact_kinds": [
+        "channel_scale"
+      ],
+      "total_bytes_smallest": 512,
+      "total_bytes_authors_bundle": 130099,
+      "dense_bytes_bf16": 31457280,
+      "peft_adapter": {
+        "rank": 12,
+        "target_modules": [
+          "down_proj"
+        ],
+        "modules": 12,
+        "bytes": 1551368
+      },
+      "seconds": 0.1,
+      "rows": [
+        {
+          "tensor": "model.layers.10.mlp.down_proj.weight",
+          "shape": [
+            640,
+            2048
+          ],
+          "authors_form": "sparse",
+          "edited_hash_verified": true,
+          "changed_entries": 1280,
+          "changed_rows": 640,
+          "changed_columns": 2,
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 1280,
+              "bytes": 7680
+            },
+            {
+              "kind": "channel_scale",
+              "columns": 2,
+              "scales": {
+                "0.5": 2
+              },
+              "assigned_zero_columns": 0,
+              "bytes": 16
+            }
+          ],
+          "smallest_exact": "channel_scale",
+          "serving_cost_per_token": {
+            "input_mask_madds": 2,
+            "lora_madds": 1282
+          },
+          "dense_matmul_madds_per_token": 1310720
+        },
+        {
+          "tensor": "model.layers.11.mlp.down_proj.weight",
+          "shape": [
+            640,
+            2048
+          ],
+          "authors_form": "sparse",
+          "edited_hash_verified": true,
+          "changed_entries": 3200,
+          "changed_rows": 640,
+          "changed_columns": 5,
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 3200,
+              "bytes": 19200
+            },
+            {
+              "kind": "channel_scale",
+              "columns": 5,
+              "scales": {
+                "0.5": 5
+              },
+              "assigned_zero_columns": 0,
+              "bytes": 40
+            }
+          ],
+          "smallest_exact": "channel_scale",
+          "serving_cost_per_token": {
+            "input_mask_madds": 5,
+            "lora_madds": 3205
+          },
+          "dense_matmul_madds_per_token": 1310720
+        },
+        {
+          "tensor": "model.layers.12.mlp.down_proj.weight",
+          "shape": [
+            640,
+            2048
+          ],
+          "authors_form": "sparse",
+          "edited_hash_verified": true,
+          "changed_entries": 3200,
+          "changed_rows": 640,
+          "changed_columns": 5,
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 3200,
+              "bytes": 19200
+            },
+            {
+              "kind": "channel_scale",
+              "columns": 5,
+              "scales": {
+                "0.5": 5
+              },
+              "assigned_zero_columns": 0,
+              "bytes": 40
+            }
+          ],
+          "smallest_exact": "channel_scale",
+          "serving_cost_per_token": {
+            "input_mask_madds": 5,
+            "lora_madds": 3205
+          },
+          "dense_matmul_madds_per_token": 1310720
+        },
+        {
+          "tensor": "model.layers.13.mlp.down_proj.weight",
+          "shape": [
+            640,
+            2048
+          ],
+          "authors_form": "sparse",
+          "edited_hash_verified": true,
+          "changed_entries": 3840,
+          "changed_rows": 640,
+          "changed_columns": 6,
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 3840,
+              "bytes": 23040
+            },
+            {
+              "kind": "channel_scale",
+              "columns": 6,
+              "scales": {
+                "0.5": 6
+              },
+              "assigned_zero_columns": 0,
+              "bytes": 48
+            }
+          ],
+          "smallest_exact": "channel_scale",
+          "serving_cost_per_token": {
+            "input_mask_madds": 6,
+            "lora_madds": 3846
+          },
+          "dense_matmul_madds_per_token": 1310720
+        },
+        {
+          "tensor": "model.layers.14.mlp.down_proj.weight",
+          "shape": [
+            640,
+            2048
+          ],
+          "authors_form": "sparse",
+          "edited_hash_verified": true,
+          "changed_entries": 5120,
+          "changed_rows": 640,
+          "changed_columns": 8,
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 5120,
+              "bytes": 30720
+            },
+            {
+              "kind": "channel_scale",
+              "columns": 8,
+              "scales": {
+                "0.5": 8
+              },
+              "assigned_zero_columns": 0,
+              "bytes": 64
+            }
+          ],
+          "smallest_exact": "channel_scale",
+          "serving_cost_per_token": {
+            "input_mask_madds": 8,
+            "lora_madds": 5128
+          },
+          "dense_matmul_madds_per_token": 1310720
+        },
+        {
+          "tensor": "model.layers.15.mlp.down_proj.weight",
+          "shape": [
+            640,
+            2048
+          ],
+          "authors_form": "sparse",
+          "edited_hash_verified": true,
+          "changed_entries": 3200,
+          "changed_rows": 640,
+          "changed_columns": 5,
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 3200,
+              "bytes": 19200
+            },
+            {
+              "kind": "channel_scale",
+              "columns": 5,
+              "scales": {
+                "0.5": 5
+              },
+              "assigned_zero_columns": 0,
+              "bytes": 40
+            }
+          ],
+          "smallest_exact": "channel_scale",
+          "serving_cost_per_token": {
+            "input_mask_madds": 5,
+            "lora_madds": 3205
+          },
+          "dense_matmul_madds_per_token": 1310720
+        },
+        {
+          "tensor": "model.layers.16.mlp.down_proj.weight",
+          "shape": [
+            640,
+            2048
+          ],
+          "authors_form": "sparse",
+          "edited_hash_verified": true,
+          "changed_entries": 7680,
+          "changed_rows": 640,
+          "changed_columns": 12,
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 7680,
+              "bytes": 46080
+            },
+            {
+              "kind": "channel_scale",
+              "columns": 12,
+              "scales": {
+                "0.5": 12
+              },
+              "assigned_zero_columns": 0,
+              "bytes": 96
+            }
+          ],
+          "smallest_exact": "channel_scale",
+          "serving_cost_per_token": {
+            "input_mask_madds": 12,
+            "lora_madds": 7692
+          },
+          "dense_matmul_madds_per_token": 1310720
+        },
+        {
+          "tensor": "model.layers.17.mlp.down_proj.weight",
+          "shape": [
+            640,
+            2048
+          ],
+          "authors_form": "sparse",
+          "edited_hash_verified": true,
+          "changed_entries": 6400,
+          "changed_rows": 640,
+          "changed_columns": 10,
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 6400,
+              "bytes": 38400
+            },
+            {
+              "kind": "channel_scale",
+              "columns": 10,
+              "scales": {
+                "0.5": 10
+              },
+              "assigned_zero_columns": 0,
+              "bytes": 80
+            }
+          ],
+          "smallest_exact": "channel_scale",
+          "serving_cost_per_token": {
+            "input_mask_madds": 10,
+            "lora_madds": 6410
+          },
+          "dense_matmul_madds_per_token": 1310720
+        },
+        {
+          "tensor": "model.layers.6.mlp.down_proj.weight",
+          "shape": [
+            640,
+            2048
+          ],
+          "authors_form": "sparse",
+          "edited_hash_verified": true,
+          "changed_entries": 1920,
+          "changed_rows": 640,
+          "changed_columns": 3,
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 1920,
+              "bytes": 11520
+            },
+            {
+              "kind": "channel_scale",
+              "columns": 3,
+              "scales": {
+                "0.5": 3
+              },
+              "assigned_zero_columns": 0,
+              "bytes": 24
+            }
+          ],
+          "smallest_exact": "channel_scale",
+          "serving_cost_per_token": {
+            "input_mask_madds": 3,
+            "lora_madds": 1923
+          },
+          "dense_matmul_madds_per_token": 1310720
+        },
+        {
+          "tensor": "model.layers.7.mlp.down_proj.weight",
+          "shape": [
+            640,
+            2048
+          ],
+          "authors_form": "sparse",
+          "edited_hash_verified": true,
+          "changed_entries": 1280,
+          "changed_rows": 640,
+          "changed_columns": 2,
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 1280,
+              "bytes": 7680
+            },
+            {
+              "kind": "channel_scale",
+              "columns": 2,
+              "scales": {
+                "0.5": 2
+              },
+              "assigned_zero_columns": 0,
+              "bytes": 16
+            }
+          ],
+          "smallest_exact": "channel_scale",
+          "serving_cost_per_token": {
+            "input_mask_madds": 2,
+            "lora_madds": 1282
+          },
+          "dense_matmul_madds_per_token": 1310720
+        },
+        {
+          "tensor": "model.layers.8.mlp.down_proj.weight",
+          "shape": [
+            640,
+            2048
+          ],
+          "authors_form": "sparse",
+          "edited_hash_verified": true,
+          "changed_entries": 2560,
+          "changed_rows": 640,
+          "changed_columns": 4,
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 2560,
+              "bytes": 15360
+            },
+            {
+              "kind": "channel_scale",
+              "columns": 4,
+              "scales": {
+                "0.5": 4
+              },
+              "assigned_zero_columns": 0,
+              "bytes": 32
+            }
+          ],
+          "smallest_exact": "channel_scale",
+          "serving_cost_per_token": {
+            "input_mask_madds": 4,
+            "lora_madds": 2564
+          },
+          "dense_matmul_madds_per_token": 1310720
+        },
+        {
+          "tensor": "model.layers.9.mlp.down_proj.weight",
+          "shape": [
+            640,
+            2048
+          ],
+          "authors_form": "sparse",
+          "edited_hash_verified": true,
+          "changed_entries": 1280,
+          "changed_rows": 640,
+          "changed_columns": 2,
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 1280,
+              "bytes": 7680
+            },
+            {
+              "kind": "channel_scale",
+              "columns": 2,
+              "scales": {
+                "0.5": 2
+              },
+              "assigned_zero_columns": 0,
+              "bytes": 16
+            }
+          ],
+          "smallest_exact": "channel_scale",
+          "serving_cost_per_token": {
+            "input_mask_madds": 2,
+            "lora_madds": 1282
+          },
+          "dense_matmul_madds_per_token": 1310720
+        }
+      ]
+    },
+    "g10b": {
+      "status": "compiled",
+      "tensors": 3,
+      "smallest_exact_kinds": [
+        "channel_scale"
+      ],
+      "total_bytes_smallest": 32,
+      "total_bytes_authors_bundle": 8601,
+      "dense_bytes_bf16": 7864320,
+      "peft_adapter": {
+        "rank": 2,
+        "target_modules": [
+          "down_proj"
+        ],
+        "modules": 3,
+        "bytes": 65264
+      },
+      "seconds": 0.0,
+      "rows": [
+        {
+          "tensor": "model.layers.14.mlp.down_proj.weight",
+          "shape": [
+            640,
+            2048
+          ],
+          "authors_form": "sparse",
+          "edited_hash_verified": true,
+          "changed_entries": 1280,
+          "changed_rows": 640,
+          "changed_columns": 2,
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 1280,
+              "bytes": 7680
+            },
+            {
+              "kind": "channel_scale",
+              "columns": 2,
+              "scales": {
+                "1.5": 2
+              },
+              "assigned_zero_columns": 0,
+              "bytes": 16
+            }
+          ],
+          "smallest_exact": "channel_scale",
+          "serving_cost_per_token": {
+            "input_mask_madds": 2,
+            "lora_madds": 1282
+          },
+          "dense_matmul_madds_per_token": 1310720
+        },
+        {
+          "tensor": "model.layers.17.mlp.down_proj.weight",
+          "shape": [
+            640,
+            2048
+          ],
+          "authors_form": "sparse",
+          "edited_hash_verified": true,
+          "changed_entries": 640,
+          "changed_rows": 640,
+          "changed_columns": 1,
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 640,
+              "bytes": 3840
+            },
+            {
+              "kind": "channel_scale",
+              "columns": 1,
+              "scales": {
+                "1.5": 1
+              },
+              "assigned_zero_columns": 0,
+              "bytes": 8
+            }
+          ],
+          "smallest_exact": "channel_scale",
+          "serving_cost_per_token": {
+            "input_mask_madds": 1,
+            "lora_madds": 641
+          },
+          "dense_matmul_madds_per_token": 1310720
+        },
+        {
+          "tensor": "model.layers.8.mlp.down_proj.weight",
+          "shape": [
+            640,
+            2048
+          ],
+          "authors_form": "sparse",
+          "edited_hash_verified": true,
+          "changed_entries": 640,
+          "changed_rows": 640,
+          "changed_columns": 1,
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 640,
+              "bytes": 3840
+            },
+            {
+              "kind": "channel_scale",
+              "columns": 1,
+              "scales": {
+                "1.5": 1
+              },
+              "assigned_zero_columns": 0,
+              "bytes": 8
+            }
+          ],
+          "smallest_exact": "channel_scale",
+          "serving_cost_per_token": {
+            "input_mask_madds": 1,
+            "lora_madds": 641
+          },
+          "dense_matmul_madds_per_token": 1310720
+        }
+      ]
+    },
+    "g25b": {
+      "status": "compiled",
+      "tensors": 1,
+      "smallest_exact_kinds": [
+        "channel_scale"
+      ],
+      "total_bytes_smallest": 8,
+      "total_bytes_authors_bundle": 2225,
+      "dense_bytes_bf16": 2621440,
+      "peft_adapter": {
+        "rank": 1,
+        "target_modules": [
+          "down_proj"
+        ],
+        "modules": 1,
+        "bytes": 11008
+      },
+      "seconds": 0.0,
+      "rows": [
+        {
+          "tensor": "model.layers.17.mlp.down_proj.weight",
+          "shape": [
+            640,
+            2048
+          ],
+          "authors_form": "sparse",
+          "edited_hash_verified": true,
+          "changed_entries": 640,
+          "changed_rows": 640,
+          "changed_columns": 1,
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 640,
+              "bytes": 3840
+            },
+            {
+              "kind": "channel_scale",
+              "columns": 1,
+              "scales": {
+                "2.0": 1
+              },
+              "assigned_zero_columns": 0,
+              "bytes": 8
+            }
+          ],
+          "smallest_exact": "channel_scale",
+          "serving_cost_per_token": {
+            "input_mask_madds": 1,
+            "lora_madds": 641
+          },
+          "dense_matmul_madds_per_token": 1310720
+        }
+      ]
+    },
+    "g50b": {
+      "status": "compiled",
+      "tensors": 2,
+      "smallest_exact_kinds": [
+        "channel_scale"
+      ],
+      "total_bytes_smallest": 2112,
+      "total_bytes_authors_bundle": 502737,
+      "dense_bytes_bf16": 3932160,
+      "peft_adapter": {
+        "rank": 256,
+        "target_modules": [
+          "down_proj",
+          "o_proj"
+        ],
+        "modules": 2,
+        "bytes": 4456984
+      },
+      "seconds": 0.0,
+      "rows": [
+        {
+          "tensor": "model.layers.11.mlp.down_proj.weight",
+          "shape": [
+            640,
+            2048
+          ],
+          "authors_form": "sparse",
+          "edited_hash_verified": true,
+          "changed_entries": 5120,
+          "changed_rows": 640,
+          "changed_columns": 8,
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 5120,
+              "bytes": 30720
+            },
+            {
+              "kind": "channel_scale",
+              "columns": 8,
+              "scales": {
+                "0.5": 8
+              },
+              "assigned_zero_columns": 0,
+              "bytes": 64
+            }
+          ],
+          "smallest_exact": "channel_scale",
+          "serving_cost_per_token": {
+            "input_mask_madds": 8,
+            "lora_madds": 5128
+          },
+          "dense_matmul_madds_per_token": 1310720
+        },
+        {
+          "tensor": "model.layers.11.self_attn.o_proj.weight",
+          "shape": [
+            640,
+            1024
+          ],
+          "authors_form": "sparse",
+          "edited_hash_verified": true,
+          "changed_entries": 163840,
+          "changed_rows": 640,
+          "changed_columns": 256,
+          "representations": [
+            {
+              "kind": "sparse_overlay",
+              "entries": 163840,
+              "bytes": 983040
+            },
+            {
+              "kind": "channel_scale",
+              "columns": 256,
+              "scales": {
+                "1.1": 256
+              },
+              "assigned_zero_columns": 0,
+              "bytes": 2048
+            }
+          ],
+          "smallest_exact": "channel_scale",
+          "serving_cost_per_token": {
+            "input_mask_madds": 256,
+            "lora_madds": 164096
+          },
+          "dense_matmul_madds_per_token": 655360
+        }
+      ]
+    }
+  }
+}

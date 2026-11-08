@@ -1,0 +1,34 @@
+{
+  "device": "cuda",
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "settings": {
+    "sessions": [],
+    "requests": 8,
+    "problems": 8,
+    "texts": 8,
+    "max_tokens": 2048,
+    "max_rows": 128,
+    "paired": 64
+  },
+  "runs": [],
+  "paired_pass": {
+    "problems": 64,
+    "rows": 128,
+    "max_tokens": 2048,
+    "loop_stop": false,
+    "s": 71.5,
+    "generated_tokens": 258888,
+    "tokens_per_s": 3622.3,
+    "decode_steps": 2048,
+    "original": {
+      "correct": 2,
+      "hit_cap": 62,
+      "mean_tokens": 2019
+    },
+    "edited": {
+      "correct": 4,
+      "hit_cap": 60,
+      "mean_tokens": 2026
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "vllm": "0.33.0",
+  "prompts": 64,
+  "max_tokens": 32768,
+  "start_s": 95.0,
+  "one_token_base_s": 0.054,
+  "one_token_new_adapter_s": [
+    0.04,
+    0.031,
+    0.027,
+    0.024,
+    0.022
+  ],
+  "passes": {
+    "paired": {
+      "s": 345.9,
+      "rows": 128,
+      "generated_tokens": 2811197,
+      "tokens_per_s": 8128.0,
+      "base": {
+        "correct": 10,
+        "hit_cap": 55,
+        "median_tokens": 32768.0
+      },
+      "edited": {
+        "correct": 44,
+        "hit_cap": 6,
+        "median_tokens": 12767.5
+      },
+      "rows_that_differ": 64
+    },
+    "edited": {
+      "s": 154.7,
+      "rows": 64,
+      "generated_tokens": 918702,
+      "tokens_per_s": 5940.2,
+      "edited": {
+        "correct": 42,
+        "hit_cap": 5,
+        "median_tokens": 12215.0
+      }
+    }
+  }
+}

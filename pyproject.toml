@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wspserve"
+version = "0.1.0"
+description = "Shared inference for weight-space programming."
+requires-python = ">=3.11"
+dependencies = ["numpy>=1.26", "torch>=2.4", "transformers>=5.19", "safetensors>=0.4", "huggingface_hub", "math-verify"]
+
+[project.optional-dependencies]
+figures = ["matplotlib"]
+
+[tool.setuptools]
+packages = ["wspserve", "wspdelta"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+addopts = "-p no:cacheprovider"

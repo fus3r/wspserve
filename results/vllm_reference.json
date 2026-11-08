@@ -1,0 +1,19 @@
+{
+  "vllm": "0.33.0",
+  "prompts": 64,
+  "max_tokens": 2048,
+  "starts_s": [
+    {
+      "engine_s": 118.9,
+      "process_s": 120.9
+    },
+    {
+      "engine_s": 53.8,
+      "process_s": 55.8
+    }
+  ],
+  "generate_s": 14.5,
+  "generated_tokens": 131072,
+  "tokens_per_s": 9020.3,
+  "hit_cap": 64
+}
