@@ -83,8 +83,9 @@ PyTorch convolution), replaying the first eight requests of released sessions at
 
 ![Replaying released sessions at once on one H100](figures/gpu_replay.png)
 
-The sessions are p50c, p25c and p10c in turn, and copies of a session work on disjoint
-problems, so every memo hit is a session reusing its own base samples
+The sessions replay the requests of p50c, p25c and p10c in turn, all with the released p50c
+edit, and copies of a session work on disjoint problems, so every memo hit is a session reusing
+its own base samples
 (`experiments/gpu_bench.py`, `results/gpu_bench.json`). A decode step takes 20 ms with 8 rows
 and 24 ms with 128, which is why the batches stack almost for free.
 
@@ -112,8 +113,14 @@ vLLM 0.33 on the same GPU (`experiments/vllm_reference.py`, `vllm_lora.py`, `lor
   (`results/vllm_lora_32768.json`). The logged passes with 128 answers generated a median of
   2.95M tokens in 986 s
 
-Not done yet: this scheduling on top of vLLM's multi-LoRA path, and whole sessions at their real
-length.
+Serving many LoRA adapters on one base model is not new: [Punica](https://arxiv.org/abs/2310.18547)
+and [S-LoRA](https://arxiv.org/abs/2311.03285) did it in 2023, and vLLM's multi-LoRA serving builds
+on that work. What this repo adds is the WSP side: the released edits fit that path, and the logs
+show what a scheduler for these sessions has to handle (paired passes, the base memo, probes
+between decode chunks, rows that loop).
+
+Not done yet: a replay where each session uses its own edit (p10c changes 30 matrices, p50c 2),
+this scheduling on top of vLLM's multi-LoRA path, and whole sessions at their real length.
 
 On an Apple M4 Pro, replaying the first eight requests of the released p50c session takes 494 s
 with wspserve against 957 s for the original design (engine rebuilt per pass, halves run one
