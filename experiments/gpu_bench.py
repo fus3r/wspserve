@@ -4,8 +4,12 @@ Each session replays the first requests of a released Experiment 8 session (p50c
 p10c), with its own problems (copies of a session take disjoint slices of the problem lists, so
 the base-sample memo is never shared between sessions), the released p50c edit as its edited
 version, n = 1 and --max-tokens per answer. All sessions run against one wspserve process.
+With --own-edits, each session uses the released final edit of its own run instead (p50c
+changes 2 matrices, p25c 1, p10c 30). Each run only keeps the edits of its own sessions
+registered, since every registered edit gets a row in the per-module delta tables.
 
     python experiments/gpu_bench.py --logs <logs>/exp8_math --sessions 1 2 4 8
+    python experiments/gpu_bench.py --logs <logs>/exp8_math --own-edits --out results/gpu_bench_own_edits.json
 
 Writes results/gpu_bench.json: per run, wall time, generated tokens, decode steps, every
 request's latency, and probe waits.
@@ -25,6 +29,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO))
 
+from experiments.released_edits import load_final_edit  # noqa: E402
 from experiments.replay import p50c_float32  # noqa: E402
 
 RUNS = ["p50c", "p25c", "p10c"]
@@ -55,13 +60,19 @@ def session_trace(logs, run, count, problems, texts, max_tokens, offset):
     return out
 
 
-def run(svc, edits, traces):
+def load_only(svc, vids, deltas):
+    """Keep only these edit versions registered (deltas: version id -> typed deltas)."""
+    svc.engine.versions = {"base": {}, **{v: deltas[v] for v in vids}}
+    svc.engine._tables = None
+
+
+def run(svc, session_edits, traces):
+    """session_edits[k]: (float32 tensors, registered version id) of session k's edit."""
     timings, passes = {}, {}
 
-    def replay(sid, requests):
+    def replay(sid, edit, requests):
         s = svc.session(sid)
-        s.edits = dict(edits)
-        s.version = svc.engine.register_float32(s.edits)
+        s.edits, s.version = dict(edit[0]), edit[1]
         start, res = time.time(), []
         for req in requests:
             t = time.time()
@@ -72,7 +83,8 @@ def run(svc, edits, traces):
         passes[sid] = res
 
     before = dict(svc.engine.stats)
-    threads = [threading.Thread(target=replay, args=(f"s{k}", reqs)) for k, reqs in enumerate(traces)]
+    threads = [threading.Thread(target=replay, args=(f"s{k}", session_edits[k], reqs))
+               for k, reqs in enumerate(traces)]
     started = time.time()
     for t in threads:
         t.start()
@@ -97,6 +109,8 @@ def main():
     parser.add_argument("--max-tokens", type=int, default=2048)
     parser.add_argument("--max-rows", type=int, default=128)
     parser.add_argument("--paired", type=int, default=0)
+    parser.add_argument("--own-edits", action="store_true",
+                        help="each session uses its own run's released final edit, not p50c")
     parser.add_argument("--out", type=Path, default=REPO / "results/gpu_bench.json")
     args = parser.parse_args()
 
@@ -105,23 +119,39 @@ def main():
     from wspserve.server import Service
 
     svc = Service(max_rows=args.max_rows)
-    edits = p50c_float32(svc.engine, args.logs)
+    floats = {"p50c": p50c_float32(svc.engine, args.logs)}
+    if args.own_edits:
+        floats.update({name: load_final_edit(svc.engine, args.logs, name) for name in RUNS[1:]})
+    edits, deltas, register_s = {}, {}, {}
+    for name, tensors in floats.items():
+        t = time.time()
+        vid = svc.engine.register_float32(tensors)
+        register_s[name] = round(time.time() - t, 1)
+        edits[name], deltas[vid] = (tensors, vid), svc.engine.versions[vid]
     report = {"device": str(svc.engine.device),
               "gpu": torch.cuda.get_device_name(0) if torch.cuda.is_available() else None,
-              "settings": {k: v for k, v in vars(args).items() if k not in ("logs", "out")}, "runs": []}
+              "settings": {k: v for k, v in vars(args).items() if k not in ("logs", "out")},
+              "register_s": register_s, "edited_tensors": {n: len(deltas[e[1]]) for n, e in edits.items()},
+              "runs": []}
     # Warm-up on other problems (kernel compilation and autotuning), not reported.
-    run(svc, edits, [session_trace(args.logs, RUNS[0], 3, args.problems, args.texts, 64, offset=100)])
+    load_only(svc, [edits["p50c"][1]], deltas)
+    run(svc, [edits["p50c"]], [session_trace(args.logs, RUNS[0], 3, args.problems, args.texts, 64, offset=100)])
     for k in args.sessions:
         traces = [session_trace(args.logs, RUNS[i % len(RUNS)], args.requests, args.problems, args.texts,
                                 args.max_tokens, offset=(i // len(RUNS)) * args.problems) for i in range(k)]
+        names = [RUNS[i % len(RUNS)] if args.own_edits else "p50c" for i in range(k)]
+        load_only(svc, sorted({edits[n][1] for n in names}), deltas)
         svc.memo.clear()
-        result = run(svc, edits, traces)
+        result = run(svc, [edits[n] for n in names], traces)
+        result["edits"] = names
         report["runs"].append(result)
         print(json.dumps({x: result[x] for x in ("sessions", "wall_s", "generated_tokens", "tokens_per_s",
                                                   "probe_wait_s_max")}), flush=True)
         args.out.write_text(json.dumps(report, indent=2) + "\n")
     if args.paired:
-        report["paired_pass"] = paired_pass(svc, edits, args.logs / "practice", args.paired, args.max_tokens)
+        load_only(svc, [edits["p50c"][1]], deltas)
+        report["paired_pass"] = paired_pass(svc, edits["p50c"][0], args.logs / "practice", args.paired,
+                                            args.max_tokens)
         print(json.dumps(report["paired_pass"]), flush=True)
         args.out.write_text(json.dumps(report, indent=2) + "\n")
 

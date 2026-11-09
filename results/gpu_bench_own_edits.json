@@ -1,0 +1,987 @@
+{
+  "device": "cuda",
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "settings": {
+    "sessions": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "requests": 8,
+    "problems": 8,
+    "texts": 8,
+    "max_tokens": 2048,
+    "max_rows": 128,
+    "paired": 0,
+    "own_edits": true
+  },
+  "register_s": {
+    "p50c": 1.0,
+    "p25c": 0.1,
+    "p10c": 668.2
+  },
+  "edited_tensors": {
+    "p50c": 2,
+    "p25c": 1,
+    "p10c": 30
+  },
+  "runs": [
+    {
+      "sessions": 1,
+      "wall_s": 362.0,
+      "per_session_s": {
+        "s0": 362.0
+      },
+      "generated_tokens": 98304,
+      "decode_steps": 12288,
+      "tokens_per_s": 271.5,
+      "probe_wait_s_max": 0.0,
+      "passes": {
+        "s0": [
+          {
+            "type": "generate",
+            "s": 59.08,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 0
+          },
+          {
+            "type": "teacher_forced",
+            "s": 0.05,
+            "ok": true,
+            "wait_s": 0.0,
+            "memo_hits": null
+          },
+          {
+            "type": "teacher_forced",
+            "s": 0.04,
+            "ok": true,
+            "wait_s": 0.0,
+            "memo_hits": null
+          },
+          {
+            "type": "generate",
+            "s": 60.87,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 60.67,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 60.13,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 60.79,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 60.38,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          }
+        ]
+      },
+      "edits": [
+        "p50c"
+      ]
+    },
+    {
+      "sessions": 2,
+      "wall_s": 369.8,
+      "per_session_s": {
+        "s1": 307.0,
+        "s0": 369.8
+      },
+      "generated_tokens": 179464,
+      "decode_steps": 12297,
+      "tokens_per_s": 485.3,
+      "probe_wait_s_max": 0.03,
+      "passes": {
+        "s1": [
+          {
+            "type": "generate",
+            "s": 61.18,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 0
+          },
+          {
+            "type": "teacher_forced",
+            "s": 0.11,
+            "ok": true,
+            "wait_s": 0.03,
+            "memo_hits": null
+          },
+          {
+            "type": "generate",
+            "s": 61.5,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 60.46,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 60.97,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 62.62,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "teacher_forced",
+            "s": 0.1,
+            "ok": true,
+            "wait_s": 0.03,
+            "memo_hits": null
+          },
+          {
+            "type": "teacher_forced",
+            "s": 0.05,
+            "ok": true,
+            "wait_s": 0.0,
+            "memo_hits": null
+          }
+        ],
+        "s0": [
+          {
+            "type": "generate",
+            "s": 60.0,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 0
+          },
+          {
+            "type": "teacher_forced",
+            "s": 0.08,
+            "ok": true,
+            "wait_s": 0.0,
+            "memo_hits": null
+          },
+          {
+            "type": "teacher_forced",
+            "s": 0.06,
+            "ok": true,
+            "wait_s": 0.0,
+            "memo_hits": null
+          },
+          {
+            "type": "generate",
+            "s": 61.72,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 60.4,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 60.81,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 62.71,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 64.01,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          }
+        ]
+      },
+      "edits": [
+        "p50c",
+        "p25c"
+      ]
+    },
+    {
+      "sessions": 4,
+      "wall_s": 436.4,
+      "per_session_s": {
+        "s1": 361.3,
+        "s0": 436.4,
+        "s3": 436.4,
+        "s2": 436.4
+      },
+      "generated_tokens": 387584,
+      "decode_steps": 12288,
+      "tokens_per_s": 888.2,
+      "probe_wait_s_max": 0.19,
+      "passes": {
+        "s1": [
+          {
+            "type": "generate",
+            "s": 71.9,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 0
+          },
+          {
+            "type": "teacher_forced",
+            "s": 0.15,
+            "ok": true,
+            "wait_s": 0.09,
+            "memo_hits": null
+          },
+          {
+            "type": "generate",
+            "s": 73.57,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 71.2,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 72.87,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 71.44,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "teacher_forced",
+            "s": 0.07,
+            "ok": true,
+            "wait_s": 0.02,
+            "memo_hits": null
+          },
+          {
+            "type": "teacher_forced",
+            "s": 0.05,
+            "ok": true,
+            "wait_s": 0.0,
+            "memo_hits": null
+          }
+        ],
+        "s0": [
+          {
+            "type": "generate",
+            "s": 71.89,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 0
+          },
+          {
+            "type": "teacher_forced",
+            "s": 0.1,
+            "ok": true,
+            "wait_s": 0.03,
+            "memo_hits": null
+          },
+          {
+            "type": "teacher_forced",
+            "s": 0.27,
+            "ok": true,
+            "wait_s": 0.19,
+            "memo_hits": null
+          },
+          {
+            "type": "generate",
+            "s": 73.38,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 71.2,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 72.87,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 71.44,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 75.23,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          }
+        ],
+        "s3": [
+          {
+            "type": "generate",
+            "s": 71.91,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 0
+          },
+          {
+            "type": "teacher_forced",
+            "s": 0.19,
+            "ok": true,
+            "wait_s": 0.14,
+            "memo_hits": null
+          },
+          {
+            "type": "teacher_forced",
+            "s": 0.2,
+            "ok": true,
+            "wait_s": 0.15,
+            "memo_hits": null
+          },
+          {
+            "type": "generate",
+            "s": 73.32,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 71.2,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 72.87,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 71.44,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 75.22,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          }
+        ],
+        "s2": [
+          {
+            "type": "generate",
+            "s": 71.92,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 0
+          },
+          {
+            "type": "teacher_forced",
+            "s": 0.26,
+            "ok": true,
+            "wait_s": 0.19,
+            "memo_hits": null
+          },
+          {
+            "type": "generate",
+            "s": 73.45,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "teacher_forced",
+            "s": 0.08,
+            "ok": true,
+            "wait_s": 0.01,
+            "memo_hits": null
+          },
+          {
+            "type": "generate",
+            "s": 71.14,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 1
+          },
+          {
+            "type": "generate",
+            "s": 72.87,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 71.44,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 75.22,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          }
+        ]
+      },
+      "edits": [
+        "p50c",
+        "p25c",
+        "p10c",
+        "p50c"
+      ]
+    },
+    {
+      "sessions": 8,
+      "wall_s": 456.5,
+      "per_session_s": {
+        "s1": 382.7,
+        "s4": 384.1,
+        "s7": 384.2,
+        "s0": 455.3,
+        "s3": 455.3,
+        "s2": 455.3,
+        "s6": 456.5,
+        "s5": 456.5
+      },
+      "generated_tokens": 776548,
+      "decode_steps": 12330,
+      "tokens_per_s": 1701.0,
+      "probe_wait_s_max": 0.28,
+      "passes": {
+        "s1": [
+          {
+            "type": "generate",
+            "s": 72.65,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 0
+          },
+          {
+            "type": "teacher_forced",
+            "s": 0.11,
+            "ok": true,
+            "wait_s": 0.06,
+            "memo_hits": null
+          },
+          {
+            "type": "generate",
+            "s": 77.3,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 78.38,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 75.11,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 78.94,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "teacher_forced",
+            "s": 0.11,
+            "ok": true,
+            "wait_s": 0.06,
+            "memo_hits": null
+          },
+          {
+            "type": "teacher_forced",
+            "s": 0.05,
+            "ok": true,
+            "wait_s": 0.0,
+            "memo_hits": null
+          }
+        ],
+        "s4": [
+          {
+            "type": "generate",
+            "s": 74.12,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 0
+          },
+          {
+            "type": "teacher_forced",
+            "s": 0.1,
+            "ok": true,
+            "wait_s": 0.05,
+            "memo_hits": null
+          },
+          {
+            "type": "generate",
+            "s": 77.46,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 78.21,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 75.01,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 79.01,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "teacher_forced",
+            "s": 0.12,
+            "ok": true,
+            "wait_s": 0.06,
+            "memo_hits": null
+          },
+          {
+            "type": "teacher_forced",
+            "s": 0.11,
+            "ok": true,
+            "wait_s": 0.06,
+            "memo_hits": null
+          }
+        ],
+        "s7": [
+          {
+            "type": "generate",
+            "s": 74.13,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 0
+          },
+          {
+            "type": "teacher_forced",
+            "s": 0.34,
+            "ok": true,
+            "wait_s": 0.28,
+            "memo_hits": null
+          },
+          {
+            "type": "generate",
+            "s": 77.23,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 78.19,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 75.01,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 79.01,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "teacher_forced",
+            "s": 0.17,
+            "ok": true,
+            "wait_s": 0.11,
+            "memo_hits": null
+          },
+          {
+            "type": "teacher_forced",
+            "s": 0.11,
+            "ok": true,
+            "wait_s": 0.06,
+            "memo_hits": null
+          }
+        ],
+        "s0": [
+          {
+            "type": "generate",
+            "s": 72.64,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 0
+          },
+          {
+            "type": "teacher_forced",
+            "s": 0.07,
+            "ok": true,
+            "wait_s": 0.02,
+            "memo_hits": null
+          },
+          {
+            "type": "teacher_forced",
+            "s": 0.2,
+            "ok": true,
+            "wait_s": 0.16,
+            "memo_hits": null
+          },
+          {
+            "type": "generate",
+            "s": 77.16,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 78.37,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 75.11,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 78.94,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 72.78,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          }
+        ],
+        "s3": [
+          {
+            "type": "generate",
+            "s": 72.66,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 0
+          },
+          {
+            "type": "teacher_forced",
+            "s": 0.21,
+            "ok": true,
+            "wait_s": 0.15,
+            "memo_hits": null
+          },
+          {
+            "type": "teacher_forced",
+            "s": 0.1,
+            "ok": true,
+            "wait_s": 0.05,
+            "memo_hits": null
+          },
+          {
+            "type": "generate",
+            "s": 77.11,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 78.38,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 75.11,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 78.94,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 72.78,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          }
+        ],
+        "s2": [
+          {
+            "type": "generate",
+            "s": 72.66,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 0
+          },
+          {
+            "type": "teacher_forced",
+            "s": 0.15,
+            "ok": true,
+            "wait_s": 0.11,
+            "memo_hits": null
+          },
+          {
+            "type": "generate",
+            "s": 77.26,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "teacher_forced",
+            "s": 0.11,
+            "ok": true,
+            "wait_s": 0.06,
+            "memo_hits": null
+          },
+          {
+            "type": "generate",
+            "s": 78.28,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 1
+          },
+          {
+            "type": "generate",
+            "s": 75.11,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 78.95,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 72.78,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          }
+        ],
+        "s6": [
+          {
+            "type": "generate",
+            "s": 74.13,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 0
+          },
+          {
+            "type": "teacher_forced",
+            "s": 0.19,
+            "ok": true,
+            "wait_s": 0.14,
+            "memo_hits": null
+          },
+          {
+            "type": "teacher_forced",
+            "s": 0.21,
+            "ok": true,
+            "wait_s": 0.15,
+            "memo_hits": null
+          },
+          {
+            "type": "generate",
+            "s": 77.18,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 0
+          },
+          {
+            "type": "generate",
+            "s": 78.19,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 75.01,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 79.01,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 72.59,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          }
+        ],
+        "s5": [
+          {
+            "type": "generate",
+            "s": 74.12,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 0
+          },
+          {
+            "type": "teacher_forced",
+            "s": 0.15,
+            "ok": true,
+            "wait_s": 0.09,
+            "memo_hits": null
+          },
+          {
+            "type": "generate",
+            "s": 77.42,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "teacher_forced",
+            "s": 0.13,
+            "ok": true,
+            "wait_s": 0.07,
+            "memo_hits": null
+          },
+          {
+            "type": "generate",
+            "s": 78.09,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 1
+          },
+          {
+            "type": "generate",
+            "s": 75.01,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 79.01,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          },
+          {
+            "type": "generate",
+            "s": 72.59,
+            "ok": true,
+            "wait_s": null,
+            "memo_hits": 8
+          }
+        ]
+      },
+      "edits": [
+        "p50c",
+        "p25c",
+        "p10c",
+        "p50c",
+        "p25c",
+        "p10c",
+        "p50c",
+        "p25c"
+      ]
+    }
+  ]
+}

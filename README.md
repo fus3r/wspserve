@@ -89,6 +89,25 @@ its own base samples
 (`experiments/gpu_bench.py`, `results/gpu_bench.json`). A decode step takes 20 ms with 8 rows
 and 24 ms with 128, which is why the batches stack almost for free.
 
+Rerun on a second H100, a slower host (one session takes 362 s there instead of 256 s), with
+each session's own released final edit (`--own-edits`: p50c changes 2 matrices, p25c 1, p10c 30)
+and, as a control on the same pod, the p50c edit in every session
+(`results/gpu_bench_own_edits.json`, `results/gpu_bench_same_edit.json`):
+
+| sessions at once | edits | wall time | decode steps | generated tokens | longest probe wait |
+|---|---|---|---|---|---|
+| 1 | p50c | 362.0 s | 12,288 | 98,304 | 0 s |
+| 2 | own (p50c, p25c) | 369.8 s | 12,297 | 179,464 | 0.03 s |
+| 4 | own (p50c, p25c, p10c, p50c) | 436.4 s | 12,288 | 387,584 | 0.19 s |
+| 8 | own | 456.5 s | 12,330 | 776,548 | 0.28 s |
+| 8 | p50c in every session | 405.2 s | 12,330 | 758,651 | 0.39 s |
+
+Both 8-session runs take the same number of decode steps, so the difference is per step: 37 ms
+with their own edits against 33 ms with p50c everywhere. wspserve installs the hooks of every
+loaded edit on every batch, so p10c's 30 matrices cost all rows, not only its own. Loading an
+edit is also slow when it is large: wspserve searches an exact compact form for each changed
+matrix, which takes 1 s for p50c and 668 s of CPU for p10c.
+
 The replay is small (8 problems per pass, 2,048 tokens), and at that size a 0.8B model leaves
 the GPU mostly idle. The released logs show the same at full size: at 32,768 tokens the median
 Qwen pass with 128 answers took 986 s (22 passes), with 256 answers 950 s (16 passes) and with
@@ -119,8 +138,8 @@ on that work. What this repo adds is the WSP side: the released edits fit that p
 show what a scheduler for these sessions has to handle (paired passes, the base memo, probes
 between decode chunks, rows that loop).
 
-Not done yet: a replay where each session uses its own edit (p10c changes 30 matrices, p50c 2),
-this scheduling on top of vLLM's multi-LoRA path, and whole sessions at their real length.
+Not done yet: this scheduling on top of vLLM's multi-LoRA path, edits that change during a
+session, and whole sessions at their real length.
 
 On an Apple M4 Pro, replaying the first eight requests of the released p50c session takes 494 s
 with wspserve against 957 s for the original design (engine rebuilt per pass, halves run one
