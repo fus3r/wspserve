@@ -27,7 +27,7 @@ request format of the Experiment 8 tool.
 ```
 wspserve/       engine.py (model, per-row versions, batched sampling, joining), server.py (HTTP, scheduling, memo), client.py
 wspdelta/       exact typed representations of edits, BF16 reconstruction, per-row runtime
-tests/          38 tests on CPU with a small random Qwen3.5
+tests/          CPU checks for inference, scheduling and the WPB report command
 experiments/    workload.py, replay.py, gpu_bench.py, vllm_reference.py, vllm_lora.py,
                 compile_released_edits.py, released_edits.py, stop_and_answer.py, loop_direction/
 wpb/            WeightProgramBench: exact policy compiler and trivial baselines
@@ -38,7 +38,7 @@ figures/        make_figures.py and its output
 ## Running it
 
 ```sh
-pip install -e ".[figures]"
+pip install -e ".[figures,test]"
 python -m pytest -q
 
 python -m wspserve.server --port 8765          # downloads the pinned Qwen3.5-0.8B
@@ -128,6 +128,16 @@ edit. Their results agree with earlier analyses by
 [OpenWSP](https://github.com/openwsp/openwsp),
 [Yiqun Zhang](https://zhangyiqun018.github.io/rethinking-weight-space-programming/) and
 [EditLens](https://xxlya.github.io/editlens/).
+
+## WeightProgramBench reproduction
+
+[wpb/README.md](wpb/README.md) gives the pinned dataset download, replay dependencies and
+commands for the official scorer. The published results include
+[49 held-out-game policy scores](results/wpb/official_baselines.json),
+[all 2,219 training-game outcomes](results/wpb/official_baselines_train100.json) (317 games,
+seven trivial policies, 100 episodes each, including three recorded scorer errors), and the
+[per-game summary](results/wpb/train_trivial.json). The hand-written policy submissions
+are in [results/wpb/policies/](results/wpb/policies/).
 
 ## Data and licenses
 

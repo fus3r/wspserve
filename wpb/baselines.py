@@ -24,6 +24,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
+DATASET_REVISION = "cb8d15ea0d2c1970f6d8b590c7b7fcb774acd426"
+SOURCE_SHA256 = "f2b3f96b86be05b7b3ea5ccf76d688f77600a6ad7643e803af94aa87ce3bf222"
 OUT = ROOT / "results/wpb/official_baselines.json"
 ACTIONS = ["noop", "left", "up", "right", "down", "fire"]
 POLICIES = {"zero": "```edits\n```"}
@@ -35,6 +37,7 @@ def sha256(path):
 
 
 def check_snapshot(runtime):
+    assert sha256(runtime / "source.json") == SOURCE_SHA256, "source.json hash: expected the pinned WPB snapshot"
     source = json.loads((runtime / "source.json").read_text())
     assert sha256(runtime / "verify.py") == source["verify_sha256"], "verify.py hash"
     assert sha256(runtime / "tasks.jsonl") == source["tasks_sha256"], "tasks.jsonl hash"
@@ -98,7 +101,7 @@ def main():
     keep = [r for r in previous["rows"] if (r["task"], r["policy"], r["episodes"]) not in
             {(x["task"], x["policy"], x["episodes"]) for x in rows}]
     report = {"dataset": "neilkale/WeightProgramBench",
-              "revision": (SNAPSHOT.parent / "REVISION").read_text().strip(),
+              "revision": DATASET_REVISION,
               "runtime_source_revision": source["source_revision"],
               "policies": {"compiled": "other names: edits answers graded from --answers",
                            "zero": "no edits: uniform softmax over 6 actions",
